@@ -25,5 +25,7 @@ public class NewYear extends JPanel {
         // h.draw(g);
         // Eye e = new Eye();
         // e.draw(g);
+        Body d = new Body();
+        d.draw(g);
     }
 }
