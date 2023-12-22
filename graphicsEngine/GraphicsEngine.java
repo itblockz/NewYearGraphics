@@ -1,13 +1,11 @@
-package drawer;
+package graphicsEngine;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Path2D;
 
-public abstract class Drawer {
-    public abstract void draw(Graphics g);
-
-    public void line(Graphics g, int x1, int y1, int x2, int y2) {
+public abstract class GraphicsEngine {
+    public static void line(Graphics g, int x1, int y1, int x2, int y2) {
         int dx = Math.abs(x2 - x1);
         int dy = Math.abs(y2 - y1);
 
@@ -45,7 +43,7 @@ public abstract class Drawer {
         }
     }
 
-    public void curve(Graphics g, int[] x, int[] y) {
+    public static void curve(Graphics g, int[] x, int[] y) {
         Graphics2D g2d = (Graphics2D) g;
 
         // Create a cubic Bezier curve
@@ -57,11 +55,11 @@ public abstract class Drawer {
         g2d.draw(path);
     }
 
-    public void polygon(Graphics g, int[] x, int[] y) {
+    public static void polygon(Graphics g, int[] x, int[] y) {
         g.fillPolygon(x, y, 3);
     }
 
-    private void plot(Graphics g, int x, int y) {
+    private static void plot(Graphics g, int x, int y) {
         g.fillRect(x, y, 1, 1);
     }
 }
