@@ -78,7 +78,7 @@ public class HNY extends JPanel {
 
     static List<List<Map<String, String>>> getLayers() {
         try {
-            List<Map<String, String>> list = CSVJoin.join("data.csv", "element.csv", "ELEMENT_ID");
+            List<Map<String, String>> list = CSVJoin.join("./csv/data.csv", "./csv/element.csv", "ELEMENT_ID");
             int layers = (int) list.stream()
                 .map(data -> data.get("LAYER"))
                 .distinct()
