@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,16 +31,28 @@ public class HNY extends JPanel {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
+        BufferedImage buffer = new BufferedImage(width+1, height+1, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = buffer.createGraphics();
+
+        g2.setColor(Color.WHITE);
+        g2.fillRect(0, 0, width, height);
+        
+        g2.setColor(Color.BLACK);
         List<List<Map<String, String>>> layers = getLayers();
         for (List<Map<String,String>> list : layers) {
             for (Map<String,String> data : list) {
-                draw(g, data);
+                draw(g2, data);
             }
-            // fill layer here
+            Map<String, String> sample = list.get(0);
+            int x = Integer.parseInt(sample.get("X"));
+            int y = Integer.parseInt(sample.get("Y"));
+            Color color = Color.decode(sample.get("ECOLOR"));
+            buffer = GraphicsEngine.fill(buffer, x, y, color);
         }
+        g.drawImage(buffer, 0, 0, null);
     }
 
-    static void draw(Graphics g, Map<String, String> data) {
+    static void draw(Graphics2D g2, Map<String, String> data) {
         String type = data.get("TYPE");
         int n;
         int[] x, y;
@@ -49,7 +63,7 @@ public class HNY extends JPanel {
                 int y1 = Integer.parseInt(data.get("Y1"));
                 int x2 = Integer.parseInt(data.get("X2"));
                 int y2 = Integer.parseInt(data.get("Y2"));
-                GraphicsEngine.line(g, x1, y1, x2, y2);
+                GraphicsEngine.line(g2, x1, y1, x2, y2);
                 break;
             case "curve":
                 n = 4;
@@ -59,7 +73,7 @@ public class HNY extends JPanel {
                     x[i] = Integer.parseInt(data.get("X"+(i+1)));
                     y[i] = Integer.parseInt(data.get("Y"+(i+1)));
                 }
-                GraphicsEngine.curve(g, x, y);
+                GraphicsEngine.curve(g2, x, y);
                 break;
             case "polygon":
                 n = 3;
@@ -70,8 +84,8 @@ public class HNY extends JPanel {
                     y[i] = Integer.parseInt(data.get("Y"+(i+1)));
                 }
                 color = data.get("COLOR");
-                g.setColor(Color.decode(color));
-                GraphicsEngine.polygon(g, x, y);
+                g2.setColor(Color.decode(color));
+                GraphicsEngine.polygon(g2, x, y);
                 break;
         }
     }
