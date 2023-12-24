@@ -63,7 +63,7 @@ public class GraphicsEngine {
     }
 
     public static void polygon(Graphics2D g, int[] x, int[] y) {
-        g.fillPolygon(x, y, 3);
+        g.fillPolygon(x, y, x.length);
     }
 
     public static void fill(BufferedImage m, int x, int y, Color replacementColour) {
