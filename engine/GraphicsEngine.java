@@ -66,7 +66,7 @@ public class GraphicsEngine {
         g.fillPolygon(x, y, 3);
     }
 
-    public static BufferedImage fill(BufferedImage m, int x, int y, Color replacementColour) {
+    public static void fill(BufferedImage m, int x, int y, Color replacementColour) {
         int targetColour = m.getRGB(x, y);
 
         List<Integer> xQ = new LinkedList<>();
@@ -85,7 +85,6 @@ public class GraphicsEngine {
                 xQ.add(curX+1); yQ.add(curY);
             }
         }
-        return m;
     }
 
     private static void plot(Graphics2D g, int x, int y) {

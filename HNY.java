@@ -47,7 +47,7 @@ public class HNY extends JPanel {
             int x = Integer.parseInt(sample.get("X"));
             int y = Integer.parseInt(sample.get("Y"));
             Color color = Color.decode(sample.get("ECOLOR"));
-            buffer = GraphicsEngine.fill(buffer, x, y, color);
+            GraphicsEngine.fill(buffer, x, y, color);
         }
         g.drawImage(buffer, 0, 0, null);
     }
