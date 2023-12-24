@@ -1,3 +1,4 @@
 ELEMENT_ID,ENAME,ECOLOR,X,Y,LAYER
 0,head,#f66b53,165,340,0
-1,sign,#f76a54,312,396,1
+1,sign,#f76a54,312,396,2
+2,white_cheek,#fdf4e2,116,375,1
