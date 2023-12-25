@@ -1,4 +1,7 @@
-ELEMENT_ID,ENAME,ECOLOR,X,Y,LAYER
-0,head,#f66b53,165,340,0
-1,sign,#f76a54,312,396,2
-2,white_cheek,#fdf4e2,116,375,1
+ELEMENT_ID,LAYER,ENAME,COLOR_BOUND,COLOR_FILL,EX1,EY1,EX2,EY2
+0,0,head,#000000,#f66b53,165,340
+1,2,sign,#000000,#f76a54,312,396
+2,1,white_cheek,#fdf4e2,#fdf4e2,116,375
+3,3,nose
+4,4,normal_eye,#43231a,#43231a,136,356,135,362
+5,5,winked_eye,#4a201a

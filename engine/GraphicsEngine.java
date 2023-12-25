@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class GraphicsEngine {
-    public static void line(Graphics2D g, int x1, int y1, int x2, int y2) {
+    public static void line(Graphics2D g2, int x1, int y1, int x2, int y2) {
         int dx = Math.abs(x2 - x1);
         int dy = Math.abs(y2 - y1);
 
@@ -27,7 +27,7 @@ public class GraphicsEngine {
         int x = x1;
         int y = y1;
         for (int i = 1; i <= dx; i++) {
-            plot(g, x, y);
+            plot(g2, x, y);
 
             if (D >= 0) {
                 if (isSwap)
@@ -45,7 +45,7 @@ public class GraphicsEngine {
         }
     }
 
-    public static void curve(Graphics2D g, int[] xPoints, int[] yPoints) {
+    public static void curve(Graphics2D g2, int[] xPoints, int[] yPoints) {
         int n = 1000;
         double d = 1.0 / n;
 
@@ -53,7 +53,7 @@ public class GraphicsEngine {
         for (int i = 0; i < n; i++) {
             int x = (int) Math.round(cubic(t, xPoints[0], xPoints[1], xPoints[2], xPoints[3]));
             int y = (int) Math.round(cubic(t, yPoints[0], yPoints[1], yPoints[2], yPoints[3]));
-            plot(g, x, y);
+            plot(g2, x, y);
             t += d;
         }
     }
@@ -62,12 +62,13 @@ public class GraphicsEngine {
         return (1-t)*(1-t)*(1-t)*x1 + 3*t*(1-t)*(1-t)*x2 + 3*t*t*(1-t)*x3 + t*t*t*x4;
     }
 
-    public static void polygon(Graphics2D g, int[] x, int[] y) {
-        g.fillPolygon(x, y, x.length);
+    public static void polygon(Graphics2D g2, int[] x, int[] y) {
+        g2.fillPolygon(x, y, x.length);
     }
 
     public static void fill(BufferedImage m, int x, int y, Color replacementColour) {
         int targetColour = m.getRGB(x, y);
+        if (targetColour == replacementColour.getRGB()) return;
 
         List<Integer> xQ = new LinkedList<>();
         List<Integer> yQ = new LinkedList<>();

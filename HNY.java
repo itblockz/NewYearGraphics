@@ -44,10 +44,17 @@ public class HNY extends JPanel {
                 draw(g2, data);
             }
             Map<String, String> sample = list.get(0);
-            int x = Integer.parseInt(sample.get("X"));
-            int y = Integer.parseInt(sample.get("Y"));
-            Color color = Color.decode(sample.get("ECOLOR"));
-            GraphicsEngine.fill(buffer, x, y, color);
+            String strColorFill = sample.get("COLOR_FILL");
+            if (!strColorFill.isEmpty()) {
+                Color color = Color.decode(strColorFill);
+                int i = 1;
+                while (sample.containsKey("EX" + i) && !sample.get("EX" + i).isEmpty()) {
+                    int x = Integer.parseInt(sample.get("EX" + i));
+                    int y = Integer.parseInt(sample.get("EY" + i));
+                    GraphicsEngine.fill(buffer, x, y, color);
+                    i++;
+                }
+            }
         }
         g.drawImage(buffer, 0, 0, null);
     }
@@ -63,6 +70,8 @@ public class HNY extends JPanel {
                 int y1 = Integer.parseInt(data.get("Y1"));
                 int x2 = Integer.parseInt(data.get("X2"));
                 int y2 = Integer.parseInt(data.get("Y2"));
+                color = data.get("COLOR_BOUND");
+                g2.setColor(Color.decode(color));
                 GraphicsEngine.line(g2, x1, y1, x2, y2);
                 break;
             case "curve":
@@ -73,6 +82,8 @@ public class HNY extends JPanel {
                     x[i] = Integer.parseInt(data.get("X"+(i+1)));
                     y[i] = Integer.parseInt(data.get("Y"+(i+1)));
                 }
+                color = data.get("COLOR_BOUND");
+                g2.setColor(Color.decode(color));
                 GraphicsEngine.curve(g2, x, y);
                 break;
             case "polygon":
@@ -88,6 +99,7 @@ public class HNY extends JPanel {
                 GraphicsEngine.polygon(g2, x, y);
                 break;
         }
+        g2.setColor(Color.BLACK);
     }
 
     static List<List<Map<String, String>>> getLayers() {
