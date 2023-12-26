@@ -1,6 +1,13 @@
 ELEMENT_ID,LAYER,ENAME,COLOR_BOUND,COLOR_FILL,EX1,EY1,EX2,EY2,EX3,EY3
 0,0,head,#000000,#f66b53,165,340
-8,8,white_cheek,#fdf4e2,#fdf4e2,116,375
+1,8,sign,#000000,,312,396
+2,2,textH,#000000,,210,421
+3,3,textN,#000000,,252,421
+4,4,textY,#000000,,286,425
+5,5,HandLeft_L,#000000,,206,411
+6,6,HandRight_L,#000000,,125,439
+7,7,Leg_L,#000000,,127,465
+8,1,white_cheek,#fdf4e2,#fdf4e2,116,375
 9,9,nose
 10,10,normal_eye,#43231a,#43231a,136,356,135,362
 11,11,winked_eye,#4a201a
