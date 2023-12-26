@@ -7,3 +7,7 @@ ELEMENT_ID,LAYER,ENAME,COLOR_BOUND,COLOR_FILL,EX1,EY1,EX2,EY2
 5,5,winked_eye,#4a201a
 6,6,right_eye_brow,#000000,#fbf4e0,136,333
 7,7,left_eye_brow,#000000,#fbf4e0,192,333
+8,8,outer_right_ear,#000000,#f86a53,111,278
+9,9,inner_right_ear,#000000,#943f30,97,289
+10,10,outer_left_ear,#000000,#f86a53,218,278
+11,11,inner_left_ear,#000000,#943f30,232,289
