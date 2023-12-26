@@ -1,9 +1,11 @@
 ELEMENT_ID,ENAME,ECOLOR,X,Y,LAYER
-0,head,#ff0000,165,340,0
+0,male_head,#ff0000,165,340,0
 1,sign,#ff0000,312,396,1
 2,textH,#ff0000,210,421,2
 3,textN,#ff0000,252,421,3
 4,textY,#ff0000,286,425,4
-5,HandLeft_L,#ff0000,206,411,5
-6,HandRight_L,#ff0000,125,439,6
-7,Leg_L,#ff0000,127,465,7
+5,male_left_hand,#ff0000,206,411,5
+6,male_right_hand,#ff0000,125,439,6
+7,male_leg,#ff0000,127,465,7
+8,male_tail,#ff0000,76,420,8
+9,male_inner_tai,#ff0000,26,375,9
