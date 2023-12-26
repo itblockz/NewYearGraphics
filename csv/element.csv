@@ -5,3 +5,5 @@ ELEMENT_ID,LAYER,ENAME,COLOR_BOUND,COLOR_FILL,EX1,EY1,EX2,EY2
 3,3,nose
 4,4,normal_eye,#43231a,#43231a,136,356,135,362
 5,5,winked_eye,#4a201a
+6,6,right_eye_brow,#000000,#fbf4e0,136,333
+7,7,left_eye_brow,#000000,#fbf4e0,192,333
