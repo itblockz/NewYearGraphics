@@ -1,11 +1,13 @@
 package engine;
 
-import java.awt.Graphics;
+import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.geom.Path2D;
+import java.awt.image.BufferedImage;
+import java.util.LinkedList;
+import java.util.List;
 
 public class GraphicsEngine {
-    public static void line(Graphics g, int x1, int y1, int x2, int y2) {
+    public static void line(Graphics2D g2, int x1, int y1, int x2, int y2) {
         int dx = Math.abs(x2 - x1);
         int dy = Math.abs(y2 - y1);
 
@@ -25,7 +27,7 @@ public class GraphicsEngine {
         int x = x1;
         int y = y1;
         for (int i = 1; i <= dx; i++) {
-            plot(g, x, y);
+            plot(g2, x, y);
 
             if (D >= 0) {
                 if (isSwap)
@@ -43,23 +45,50 @@ public class GraphicsEngine {
         }
     }
 
-    public static void curve(Graphics g, int[] x, int[] y) {
-        Graphics2D g2d = (Graphics2D) g;
+    public static void curve(Graphics2D g2, int[] xPoints, int[] yPoints) {
+        int n = 1000;
+        double d = 1.0 / n;
 
-        // Create a cubic Bezier curve
-        Path2D path = new Path2D.Double();
-        path.moveTo(x[0], y[0]); // Starting point
-        path.curveTo(x[1], y[1], x[2], y[2], x[3], y[3]); // Control points and end point
-
-        // Draw the Bezier curve
-        g2d.draw(path);
+        double t = 0;
+        for (int i = 0; i < n; i++) {
+            int x = (int) Math.round(cubic(t, xPoints[0], xPoints[1], xPoints[2], xPoints[3]));
+            int y = (int) Math.round(cubic(t, yPoints[0], yPoints[1], yPoints[2], yPoints[3]));
+            plot(g2, x, y);
+            t += d;
+        }
     }
 
-    public static void polygon(Graphics g, int[] x, int[] y) {
-        g.fillPolygon(x, y, 3);
+    private static double cubic(double t, int x1, int x2, int x3, int x4) {
+        return (1-t)*(1-t)*(1-t)*x1 + 3*t*(1-t)*(1-t)*x2 + 3*t*t*(1-t)*x3 + t*t*t*x4;
     }
 
-    private static void plot(Graphics g, int x, int y) {
+    public static void polygon(Graphics2D g2, int[] x, int[] y) {
+        g2.fillPolygon(x, y, x.length);
+    }
+
+    public static void fill(BufferedImage m, int x, int y, Color replacementColour) {
+        int targetColour = m.getRGB(x, y);
+        if (targetColour == replacementColour.getRGB()) return;
+
+        List<Integer> xQ = new LinkedList<>();
+        List<Integer> yQ = new LinkedList<>();
+        xQ.add(x); yQ.add(y);
+
+        while (!xQ.isEmpty()) {
+            int curX = xQ.remove(0);
+            int curY = yQ.remove(0);
+
+            if (m.getRGB(curX, curY) == targetColour) {
+                m.setRGB(curX, curY, replacementColour.getRGB());
+                xQ.add(curX); yQ.add(curY-1);
+                xQ.add(curX); yQ.add(curY+1);
+                xQ.add(curX-1); yQ.add(curY);
+                xQ.add(curX+1); yQ.add(curY);
+            }
+        }
+    }
+
+    private static void plot(Graphics2D g, int x, int y) {
         g.fillRect(x, y, 1, 1);
     }
 }
