@@ -41,8 +41,8 @@ public class HNY extends JPanel {
         }
         
         Database db = new Database();
-        db.createTable("./csv/lines.csv", "Lines");
-        db.createTable("./csv/elements.csv", "Elements");
+        db.createTable("./data/lines.csv", "Lines");
+        db.createTable("./data/elements.csv", "Elements");
         List<Map<String, String>> lines = db.getTable("Lines");
         List<Map<String, String>> elements = db.getTable("Elements");
         List<Map<String, String>> joined = db.getJoinedTable(lines, elements, "ELEMENT_ID");
