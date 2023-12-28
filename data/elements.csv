@@ -30,3 +30,4 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 62,62,female_left_eye_brow,#4a201a,#fbf4e0,464,333
 63,63,female_right_eye_brow,#4a201a,#fbf4e0,407,333
 64,64,female_outer_left_ear,#4a201a,#f86a53,488,278
+65,65,female_inner_left_ear,#4a201a,#943f30,502,289
