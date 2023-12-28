@@ -28,3 +28,4 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 26,26,female_winked_eye,#4a201a
 27,27,female_nose
 62,62,female_left_eye_brow,#4a201a,#fbf4e0,464,333
+63,63,female_right_eye_brow,#4a201a,#fbf4e0,407,333
