@@ -32,3 +32,4 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 64,64,female_outer_left_ear,#4a201a,#f86a53,488,278
 65,65,female_inner_left_ear,#4a201a,#943f30,502,289
 66,66,female_outer_right_ear,#4a201a,#f86a53,381,278
+67,67,female_inner_right_ear,#4a201a,#943f30,369,289
