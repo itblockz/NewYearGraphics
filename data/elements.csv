@@ -25,3 +25,4 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 23,3,female_head,#000000,#f66b53,436,353
 24,4,female_white_cheek,#fbf4e0,#fbf4e0,436,375
 25,25,female_normal_eye,#4a201a,#4a201a,464,356
+26,26,female_winked_eye,#4a201a
