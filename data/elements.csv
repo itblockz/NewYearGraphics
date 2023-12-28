@@ -6,7 +6,7 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 4,9,textY,#4a201a,#fbd86c,286,425
 5,22,male_left_hand,#4a201a,#f66b53,216,380
 6,10,male_right_hand,#4a201a,#f66b53,125,439
-7,2,male_leg,#4a201a,#f66b53,160,470
+7,71,male_leg,#4a201a,#f66b53,160,470
 8,1,male_white_cheek,#fbf4e0,#fbf4e0,116,375
 9,23,male_nose
 10,24,male_normal_eye,#4a201a,#4a201a,136,356
@@ -33,7 +33,7 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 65,65,female_inner_left_ear,#4a201a,#943f30,502,289
 66,66,female_outer_right_ear,#4a201a,#f86a53,381,278
 67,67,female_inner_right_ear,#4a201a,#943f30,369,289
-68,68,female_left_horn,#4a201a,#fbd86c,475,262
+68,70,female_left_horn,#4a201a,#fbd86c,475,262
 69,69,female_right_horn,#4a201a,#fbd86c,396,262
-70,70,female_left_mane,#4a201a,#fbd86c,519,353
-71,71,female_right_mane,#4a201a,#fbd86c,351,353
+70,68,female_left_mane,#4a201a,#fbd86c,519,353
+71,2,female_right_mane,#4a201a,#fbd86c,351,353
