@@ -1,12 +1,12 @@
-ELEMENT_ID,LAYER,ENAME,COLOR_BOUND,COLOR_FILL,EX1,EY1,EX2,EY2,EX3,EY3
+ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 0,0,head,#000000,#f66b53,165,340
-1,8,sign,#000000,#f66b53,312,396
+1,6,sign,#000000,#f66b53,312,396
 2,2,textH,#000000,#fbd86c,210,421
 3,3,textN,#000000,#fbd86c,252,421
 4,4,textY,#000000,#fbd86c,286,425
-5,5,male_left_hand,#000000,,206,411
-6,6,male_right_hand,#000000,,125,439
-7,7,male_leg,#000000,,127,465
+5,22,male_left_hand,#000000,#f66b53,216,380
+6,8,male_right_hand,#000000,#f66b53,125,439
+7,7,male_leg,#000000,#f66b53,160,470
 8,1,male_white_cheek,#fbf4e0,#fbf4e0,116,375
 9,9,male_nose
 10,10,male_normal_eye,#4a201a,#4a201a,136,356,135,362
@@ -21,4 +21,4 @@ ELEMENT_ID,LAYER,ENAME,COLOR_BOUND,COLOR_FILL,EX1,EY1,EX2,EY2,EX3,EY3
 19,19,male_left_horn,#000000,#fbd86c,213,262,186,284,200,276
 20,20,male_tail,#000000,#f66b53,76,420
 21,21,male_right_mane,#000000,#fbd86c,81,353
-22,22,male_left_mane,#000000,#fbd86c,247,353
+22,5,male_left_mane,#000000,#fbd86c,247,353

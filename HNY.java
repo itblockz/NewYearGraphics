@@ -2,16 +2,17 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.IntStream;
+import java.util.PriorityQueue;
+import java.util.Set;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import csvjoin.CSVJoin;
+import engine.Database;
 import engine.GraphicsEngine;
 
 public class HNY extends JPanel {
@@ -31,32 +32,45 @@ public class HNY extends JPanel {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        BufferedImage buffer = new BufferedImage(width+1, height+1, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2 = buffer.createGraphics();
 
-        g2.setColor(Color.WHITE);
-        g2.fillRect(0, 0, width, height);
+        int start = 0;
+        int end = 22;
+        Set<String> layersToDraw = new HashSet<>();
+        for (int i = start; i <= end; i++) {
+            layersToDraw.add(String.valueOf(i));
+        }
         
-        g2.setColor(Color.BLACK);
-        List<List<Map<String, String>>> layers = getLayers();
-        for (List<Map<String,String>> list : layers) {
+        Database db = new Database();
+        db.createTable("./csv/lines.csv", "Lines");
+        db.createTable("./csv/elements.csv", "Elements");
+        List<Map<String, String>> lines = db.getTable("Lines");
+        List<Map<String, String>> elements = db.getTable("Elements");
+        List<Map<String, String>> joined = db.getJoinedTable(lines, elements, "ELEMENT_ID");
+        Map<String, List<Map<String, String>>> layerMap = db.getGroupedTable(joined, "LAYER");
+        PriorityQueue<String> queue = new PriorityQueue<>(Comparator.comparing(Integer::parseInt));
+        for (String str : layerMap.keySet()) {
+            queue.add(str);
+        }
+
+        while (!queue.isEmpty()) {
+            String layer = queue.poll();
+            List<Map<String, String>> list = layerMap.get(layer);
+            if (!layersToDraw.contains(layer)) continue;
+            BufferedImage buffer = new BufferedImage(width+1, height+1, BufferedImage.TYPE_INT_ARGB);
+            Graphics2D g2 = buffer.createGraphics();
             for (Map<String,String> data : list) {
                 draw(g2, data);
             }
             Map<String, String> sample = list.get(0);
-            String strColorFill = sample.get("COLOR_FILL");
-            if (!strColorFill.isEmpty()) {
-                Color color = Color.decode(strColorFill);
-                int i = 1;
-                while (sample.containsKey("EX" + i) && !sample.get("EX" + i).isEmpty()) {
-                    int x = Integer.parseInt(sample.get("EX" + i));
-                    int y = Integer.parseInt(sample.get("EY" + i));
-                    GraphicsEngine.fill(buffer, x, y, color);
-                    i++;
-                }
+            String colorFill = sample.get("COLOR_FILL");
+            if (!colorFill.isEmpty()) {
+                Color color = Color.decode(colorFill);
+                int seedX = Integer.parseInt(sample.get("SEED_X"));
+                int seedY = Integer.parseInt(sample.get("SEED_Y"));
+                GraphicsEngine.fill(buffer, seedX, seedY, color);
             }
+            g.drawImage(buffer, 0, 0, null);
         }
-        g.drawImage(buffer, 0, 0, null);
     }
 
     static void draw(Graphics2D g2, Map<String, String> data) {
@@ -71,6 +85,8 @@ public class HNY extends JPanel {
                 int x2 = Integer.parseInt(data.get("X2"));
                 int y2 = Integer.parseInt(data.get("Y2"));
                 color = data.get("COLOR_BOUND");
+                if (!data.get("COLOR").isEmpty())
+                    color = data.get("COLOR");
                 g2.setColor(Color.decode(color));
                 GraphicsEngine.line(g2, x1, y1, x2, y2);
                 break;
@@ -83,6 +99,8 @@ public class HNY extends JPanel {
                     y[i] = Integer.parseInt(data.get("Y"+(i+1)));
                 }
                 color = data.get("COLOR_BOUND");
+                if (!data.get("COLOR").isEmpty())
+                    color = data.get("COLOR");
                 g2.setColor(Color.decode(color));
                 GraphicsEngine.curve(g2, x, y);
                 break;
@@ -98,29 +116,6 @@ public class HNY extends JPanel {
                 g2.setColor(Color.decode(color));
                 GraphicsEngine.polygon(g2, x, y);
                 break;
-        }
-        g2.setColor(Color.BLACK);
-    }
-
-    static List<List<Map<String, String>>> getLayers() {
-        try {
-            List<Map<String, String>> list = CSVJoin.join("./csv/data.csv", "./csv/element.csv", "ELEMENT_ID");
-            int layers = (int) list.stream()
-                .map(data -> data.get("LAYER"))
-                .distinct()
-                .count();
-            List<List<Map<String, String>>> layerList = new ArrayList<>();
-            IntStream.range(0, layers)
-                .forEach(i -> layerList.add(new ArrayList<>()));
-            list.stream()
-                .forEach(data -> {
-                    int idx = Integer.parseInt(data.get("LAYER"));
-                    layerList.get(idx).add(data);
-                });
-            return layerList;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
         }
     }
 }
