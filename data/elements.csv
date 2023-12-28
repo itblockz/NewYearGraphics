@@ -8,8 +8,8 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 6,10,male_right_hand,#000000,#f66b53,125,439
 7,2,male_leg,#000000,#f66b53,160,470
 8,1,male_white_cheek,#fbf4e0,#fbf4e0,116,375
-9,4,male_nose
-10,3,male_normal_eye,#4a201a,#4a201a,136,356,135,362
+9,23,male_nose
+10,3,male_normal_eye,#4a201a,#4a201a,136,356
 11,11,male_winked_eye,#4a201a
 12,12,male_right_eye_brow,#000000,#fbf4e0,136,333
 13,13,male_left_eye_brow,#000000,#fbf4e0,192,333
@@ -17,8 +17,9 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 15,15,male_inner_right_ear,#000000,#943f30,97,289
 16,16,male_outer_left_ear,#000000,#f86a53,218,278
 17,17,male_inner_left_ear,#000000,#943f30,232,289
-18,21,male_right_horn,#000000,#fbd86c,126,262,143,284,127,276
-19,19,male_left_horn,#000000,#fbd86c,213,262,186,284,200,276
+18,21,male_right_horn,#000000,#fbd86c,126,262
+19,19,male_left_horn,#000000,#fbd86c,213,262
 20,20,male_tail,#000000,#f66b53,76,420
 21,18,male_right_mane,#000000,#fbd86c,81,353
 22,5,male_left_mane,#000000,#fbd86c,247,353
+23,4,female_head,#000000,#f66b53,436,353
