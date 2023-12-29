@@ -33,9 +33,14 @@ public class HNY extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
 
-        int start = 22;
-        int end = 22;
+        int start = 0;
+        int end = 20;
         Set<String> layersToDraw = new HashSet<>();
+        for (int i = start; i <= end; i++) {
+            layersToDraw.add(String.valueOf(i));
+        }
+        start = 55;
+        end = 73;
         for (int i = start; i <= end; i++) {
             layersToDraw.add(String.valueOf(i));
         }
