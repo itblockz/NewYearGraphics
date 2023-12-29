@@ -58,7 +58,7 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 56,5,male_left_mane,#4a201a,#fbd86c,247,353
 57,3,female_head,#4a201a,#f66b53,436,353
 58,4,female_white_cheek,#fbf4e0,#fbf4e0,436,375
-59,59,female_normal_eye,#4a201a,#4a201a,464,356
+59,74,female_normal_eye,#4a201a,#4a201a,464,356
 60,60,female_winked_eye,#4a201a
 61,61,female_nose
 62,62,female_left_eye_brow,#4a201a,#fbf4e0,464,333
@@ -73,3 +73,4 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 71,2,female_right_mane,#4a201a,#fbd86c,351,353
 72,58,male_right_pink_cheek,#fba798,#fba798,126,367
 73,56,male_left_pink_cheek,#fba798,#fba798,200,367
+74,59,female_left_pink_cheek,#fba798,#fba798,475,367
