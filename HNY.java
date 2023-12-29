@@ -40,7 +40,7 @@ public class HNY extends JPanel {
             layersToDraw.add(String.valueOf(i));
         }
         start = 55;
-        end = 75;
+        end = 76;
         for (int i = start; i <= end; i++) {
             layersToDraw.add(String.valueOf(i));
         }
