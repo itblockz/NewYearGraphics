@@ -52,8 +52,7 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 50,71,firework_9
 51,72,firework_10
 52,73,firework_11
-53,74,star3_color_4,#000000,#3B00CA,543,222,527,225,531,243
-54,75,fix_female_left_hand,#f66b53,#3400A4,
+53,74,coin_1
 55,14,male_right_mane,#4a201a,#fbd86c,81,353
 56,15,male_left_mane,#4a201a,#fbd86c,247,353
 57,20,female_head,#4a201a,#f66b53,436,353
