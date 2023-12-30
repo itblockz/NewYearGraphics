@@ -4,7 +4,7 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 2,51,textH,#4a201a,#ffffff,210,421
 3,52,textN,#4a201a,#ffffff,252,421
 4,53,textY,#4a201a,#ffffff,286,425
-5,91,male_left_hand,#4a201a,#f66b53,216,380
+5,93,male_left_hand,#4a201a,#f66b53,216,380
 6,9,male_right_hand,#4a201a,#f66b53,125,439
 7,6,male_body,#4a201a,#f66b53,160,470
 8,5,male_white_cheek,#fbf4e0,#fbf4e0,116,375
@@ -22,7 +22,7 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 20,4,male_tail,#4a201a,#f66b53,76,420
 21,3,male_inner_tail,#000000,#ffd875,29,376
 22,7,male_marking,#fff1e3,#fff1e3,148,406
-23,93,female_right_hand,#000000,#f66b53,384,376
+23,95,female_right_hand,#000000,#f66b53,384,376
 24,29,female_left_hand,#000000,#f66b53,478,418
 25,24,female_tail,#000000,#f66b53,522,412
 26,23,female_inner_tail,#000000,#fcd66f,578,375
@@ -58,7 +58,7 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 56,15,male_left_mane,#4a201a,#fbd86c,247,353
 57,20,female_head,#4a201a,#f66b53,436,353
 58,25,female_white_cheek,#fbf4e0,#fbf4e0,436,375
-59,92,female_normal_eye,#4a201a,#4a201a,464,356
+59,94,female_normal_eye,#4a201a,#4a201a,464,356
 60,41,female_winked_eye,#4a201a
 61,40,female_nose
 62,38,female_left_eye_brow,#4a201a,#fbf4e0,464,333
@@ -89,7 +89,8 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 87,87,left_firework10
 88,88,left_firework11
 89,89,left_firework12
-90,90,coin3
-91,47,outer_sign,#4a201a,#fad86d,414,449
-92,8,sign_left_handle,#4a201a,#fad86d,159,409
-93,28,sign_right_handle,#4a201a,#fad86d,440,405
+91,91,coin2
+92,92,coin3
+93,47,outer_sign,#4a201a,#fad86d,414,449
+94,8,sign_left_handle,#4a201a,#fad86d,159,409
+95,28,sign_right_handle,#4a201a,#fad86d,440,405
