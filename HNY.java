@@ -56,8 +56,8 @@ public class HNY extends JPanel {
 
         while (!queue.isEmpty()) {
             String layer = queue.poll();
-            List<Map<String, String>> list = layerMap.get(layer);
             if (!layersToDraw.contains(layer)) continue;
+            List<Map<String, String>> list = layerMap.get(layer);
             BufferedImage buffer = new BufferedImage(width+1, height+1, BufferedImage.TYPE_INT_ARGB);
             Graphics2D g2 = buffer.createGraphics();
             for (Map<String,String> data : list) {
