@@ -37,7 +37,7 @@ public class Assignment1_65050434_65050534 extends JPanel {
 
         Set<String> layersToDraw = new HashSet<>();
         int start = 0;
-        int end = 95;
+        int end = 93;
         for (int i = start; i <= end; i++) {
             layersToDraw.add(String.valueOf(i));
         }
