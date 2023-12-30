@@ -72,6 +72,6 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 70,34,female_left_mane,#4a201a,#fbd86c,519,353
 71,35,female_right_mane,#4a201a,#fbd86c,351,353
 72,46,male_right_pink_cheek,#fba798,#fba798,126,367
-76,47,outer_sign,#4a201a,#fad86d,414,449
-77,8,sign_left_handle,#4a201a,#fad86d,159,409
-78,28,sign_right_handle,#4a201a,#fad86d,440,405
+91,47,outer_sign,#4a201a,#fad86d,414,449
+92,8,sign_left_handle,#4a201a,#fad86d,159,409
+93,28,sign_right_handle,#4a201a,#fad86d,440,405
