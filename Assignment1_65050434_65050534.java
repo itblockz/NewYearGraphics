@@ -15,12 +15,12 @@ import javax.swing.JPanel;
 import engine.Database;
 import engine.GraphicsEngine;
 
-public class HNY extends JPanel {
+public class Assignment1_65050434_65050534 extends JPanel {
     private static final int width = 600;
     private static final int height = 600;
     
     public static void main(String[] args) {
-        HNY m = new HNY();
+        Assignment1_65050434_65050534 m = new Assignment1_65050434_65050534();
         JFrame f = new JFrame();
         f.add(m);
         f.setTitle("Happy New Year 2024");
