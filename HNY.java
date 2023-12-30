@@ -32,6 +32,8 @@ public class HNY extends JPanel {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 0, width, height);
 
         Set<String> layersToDraw = new HashSet<>();
         int start = 0;
