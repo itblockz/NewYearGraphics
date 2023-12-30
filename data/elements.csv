@@ -20,13 +20,13 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 18,16,male_right_horn,#4a201a,#fbd86c,126,262
 19,17,male_left_horn,#4a201a,#fbd86c,213,262
 20,4,male_tail,#4a201a,#f66b53,76,420
-21,3,male_inner_tail,#000000,#ffd875,29,376
+21,3,male_inner_tail,#4a201a,#ffd875,29,376
 22,7,male_marking,#fff1e3,#fff1e3,148,406
-23,95,female_right_hand,#000000,#f66b53,384,376
-24,29,female_left_hand,#000000,#f66b53,478,418
-25,24,female_tail,#000000,#f66b53,522,412
-26,23,female_inner_tail,#000000,#fcd66f,578,375
-27,26,female_body,#000000,#f66b53,464,467
+23,95,female_right_hand,#4a201a,#f66b53,384,376
+24,29,female_left_hand,#4a201a,#f66b53,478,418
+25,24,female_tail,#4a201a,#f66b53,522,412
+26,23,female_inner_tail,#4a201a,#fcd66f,578,375
+27,26,female_body,#4a201a,#f66b53,464,467
 28,27,female_marking,#fff1e3,#fff1e3,451,403
 29,1,male_light_shadow,#fdf3e3,#fdf3e3,77,494,
 30,21,female_light_shadow,#fdf3e3,#fdf3e3,526,488
@@ -35,7 +35,7 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 33,59,sign_shadow,#fdf3e3,#fdf3e3,300,490
 34,54,text2,#4a201a,#ffffff,320,420
 35,55,text0,#4a201a,#ffffff,340,426
-36,56,inner_text_0,#000000,#f66b53,340,421
+36,56,inner_text_0,#4a201a,#f66b53,340,421
 37,57,second_text_2,#4a201a,#ffffff,367,416
 38,58,text4,#4a201a,#ffffff,385,425
 39,60,star1
@@ -52,7 +52,7 @@ ELEMENT_ID,LAYER,NAME,COLOR_BOUND,COLOR_FILL,SEED_X,SEED_Y
 50,71,right_firework_9
 51,72,right_firework_10
 52,73,right_firework_11
-53,74,star3_color_4,#000000,#3B00CA,543,222,527,225,531,243
+53,74,star3_color_4,#4a201a,#3B00CA,543,222,527,225,531,243
 54,75,fix_female_left_hand,#f66b53,#3400A4,
 55,14,male_right_mane,#4a201a,#fbd86c,81,353
 56,15,male_left_mane,#4a201a,#fbd86c,247,353
