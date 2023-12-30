@@ -43,37 +43,39 @@ public class Assignment1_65050434_65050534 extends JPanel {
         }
         
         Database db = new Database();
-        db.createTable("./data/lines.csv", "Lines");
-        db.createTable("./data/elements.csv", "Elements");
-        List<Map<String, String>> lines = db.getTable("Lines");
-        List<Map<String, String>> elements = db.getTable("Elements");
-        List<Map<String, String>> joined = db.getJoinedTable(lines, elements, "ELEMENT_ID");
-        Map<String, List<Map<String, String>>> layerMap = db.getGroupedTable(joined, "LAYER");
-        PriorityQueue<String> queue = new PriorityQueue<>(Comparator.comparing(Integer::parseInt));
-        for (String str : layerMap.keySet()) {
-            queue.add(str);
-        }
-
-        while (!queue.isEmpty()) {
-            String layer = queue.poll();
-            if (!layersToDraw.contains(layer)) continue;
-            List<Map<String, String>> list = layerMap.get(layer);
-            BufferedImage buffer = new BufferedImage(width+1, height+1, BufferedImage.TYPE_INT_ARGB);
-            Graphics2D g2 = buffer.createGraphics();
-            for (Map<String,String> data : list) {
-                draw(g2, data);
+        boolean isTable1Created = db.createTable("./data/lines.csv", "Lines");
+        boolean isTable2Created = db.createTable("./data/elements.csv", "Elements");
+        if (isTable1Created && isTable2Created) {
+            List<Map<String, String>> lines = db.getTable("Lines");
+            List<Map<String, String>> elements = db.getTable("Elements");
+            List<Map<String, String>> joined = db.getJoinedTable(lines, elements, "ELEMENT_ID");
+            Map<String, List<Map<String, String>>> layerMap = db.getGroupedTable(joined, "LAYER");
+            PriorityQueue<String> queue = new PriorityQueue<>(Comparator.comparing(Integer::parseInt));
+            for (String str : layerMap.keySet()) {
+                queue.add(str);
             }
-            Map<String, String> sample = list.get(0);
-            String colorFill = sample.get("COLOR_FILL");
-            if (!colorFill.isEmpty()) {
-                Color color = Color.decode(colorFill);
-                int seedX = Integer.parseInt(sample.get("SEED_X"));
-                int seedY = Integer.parseInt(sample.get("SEED_Y"));
-                GraphicsEngine.fill(buffer, seedX, seedY, color);
-            }
-            g.drawImage(buffer, 0, 0, null);
-        }
-    }
+    
+            while (!queue.isEmpty()) {
+                String layer = queue.poll();
+                if (!layersToDraw.contains(layer)) continue;
+                List<Map<String, String>> list = layerMap.get(layer);
+                BufferedImage buffer = new BufferedImage(width+1, height+1, BufferedImage.TYPE_INT_ARGB);
+                Graphics2D g2 = buffer.createGraphics();
+                for (Map<String,String> data : list) {
+                    draw(g2, data);
+                }
+                Map<String, String> sample = list.get(0);
+                String colorFill = sample.get("COLOR_FILL");
+                if (!colorFill.isEmpty()) {
+                    Color color = Color.decode(colorFill);
+                    int seedX = Integer.parseInt(sample.get("SEED_X"));
+                    int seedY = Integer.parseInt(sample.get("SEED_Y"));
+                    GraphicsEngine.fill(buffer, seedX, seedY, color);
+                }
+                g.drawImage(buffer, 0, 0, null);
+            } // while
+        } // if
+    } // paint
 
     static void draw(Graphics2D g2, Map<String, String> data) {
         String type = data.get("TYPE");
@@ -118,6 +120,6 @@ public class Assignment1_65050434_65050534 extends JPanel {
                 g2.setColor(Color.decode(color));
                 GraphicsEngine.polygon(g2, x, y);
                 break;
-        }
-    }
-}
+        } // switch
+    } // draw
+} // class

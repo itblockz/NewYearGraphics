@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
 public class Database {
     private Map<String, List<Map<String, String>>> tableMap = new HashMap<>();
 
-    public void createTable(String csvFilePath, String tableName) {
+    public boolean createTable(String csvFilePath, String tableName) {
         try (BufferedReader reader = new BufferedReader(new FileReader(csvFilePath))) {
             String[] header = reader.readLine().split(",");
             
@@ -27,7 +27,11 @@ public class Database {
                         ));
                 }).collect(Collectors.toList());
             tableMap.put(tableName, table);
-        } catch (IOException e) { }
+            return true;
+        } catch (IOException e) {
+            System.out.println(e);
+            return false;
+        }
     }
 
     public List<Map<String, String>> getTable(String tableName) {
