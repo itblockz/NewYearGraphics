@@ -30,8 +30,8 @@ public class Assignment1_65050434_65050534 extends JPanel {
     }
 
     @Override
-    public void paint(Graphics g) {
-        super.paint(g);
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         g.setColor(Color.WHITE);
         g.fillRect(0, 0, width, height);
 
